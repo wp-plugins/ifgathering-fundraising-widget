@@ -1,4 +1,4 @@
-=== IF:Gathering Plugin ===
+=== IF:Gathering Fundraiser Widget ===
 Contributors: bryanmonzon
 Tags: widget
 Requires at least: 3.0

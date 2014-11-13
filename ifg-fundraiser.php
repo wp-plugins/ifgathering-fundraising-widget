@@ -4,7 +4,7 @@
  * @version 1.0
  */
 /*
-Plugin Name: IF:Gathering Fundraiser Plguin
+Plugin Name: IF:Gathering Fundraiser
 Plugin URI: http://ifgathering.com
 Description: This plugin is a widget you can use to install on your site and display the fundraiser results
 Author: Bryan Monzon
