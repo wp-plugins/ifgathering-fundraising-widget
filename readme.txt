@@ -3,7 +3,7 @@ Contributors: bryanmonzon
 Tags: widget
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 Display fundraiser widget for IF:Gathering fundraising needs. 
 
@@ -18,6 +18,7 @@ The widget and shortcode can't be on the same page at the same time.
 
 *   1 size 350x350 and this is not responsive.
 *   1 shortcode `[fundraiser_widget]` (can't be used at the same time as the widget)
+*   You can only use one instance of the widget on a page. 
 
 
 == Screenshots ==
@@ -49,6 +50,9 @@ Contributors:
 
 
 == Changelog ==
+
+= 1.1 =
+*   Fix improper loading of scripts
 
 = 1.0 =
 *   Initial Launch

@@ -1,14 +1,14 @@
 <?php
 /**
  * @package IFG_FUNDRAISER
- * @version 1.0
+ * @version 1.1
  */
 /*
-Plugin Name: IF:Gathering Fundraiser
+Plugin Name: IF:Gathering Fundraiser Plguin
 Plugin URI: http://ifgathering.com
 Description: This plugin is a widget you can use to install on your site and display the fundraiser results
 Author: Bryan Monzon
-Version: 1.0
+Version: 1.1
 Author URI: http://fiftyandfifty.org
 */
 
@@ -102,7 +102,7 @@ add_action('widgets_init', create_function('', 'return register_widget("ifg_fund
 function ifg_fundraiser_shortcode( $atts, $content=null )
 {
     ob_start(); ?>
-    <script rel="ifg" src="'. IFG_FUNDRAISER_PLUGIN_URL .'assets/js/if-widget.min.js"></script>
+    <script rel="ifg" src="<?php echo IFG_FUNDRAISER_PLUGIN_URL; ?>assets/js/if-widget.min.js"></script>
     <?php 
     return ob_get_clean();
 }
