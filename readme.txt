@@ -3,7 +3,7 @@ Contributors: bryanmonzon
 Tags: widget
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 Display fundraiser widget for IF:Gathering fundraising needs. 
 
@@ -50,6 +50,9 @@ Contributors:
 
 
 == Changelog ==
+
+= 1.2 =
+*   Fix comma placement
 
 = 1.1 =
 *   Fix improper loading of scripts
