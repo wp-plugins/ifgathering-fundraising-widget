@@ -8,7 +8,7 @@ Plugin Name: IF:Gathering Fundraiser Plguin
 Plugin URI: http://ifgathering.com
 Description: This plugin is a widget you can use to install on your site and display the fundraiser results
 Author: Bryan Monzon
-Version: 1.1
+Version: 1.2
 Author URI: http://fiftyandfifty.org
 */
 
