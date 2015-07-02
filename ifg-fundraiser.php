@@ -8,7 +8,7 @@ Plugin Name: IF:Gathering Fundraiser Plguin
 Plugin URI: http://ifgathering.com
 Description: This plugin is a widget you can use to install on your site and display the fundraiser results
 Author: Bryan Monzon
-Version: 1.2
+Version: 1.3
 Author URI: http://fiftyandfifty.org
 */
 
@@ -20,54 +20,21 @@ if ( ! defined( 'IFG_FUNDRAISER_PLUGIN_URL' ) )
 class IFG_FUNDRAISER_WIDGET extends WP_Widget 
 {
 
+    
+
     // constructor
-    function ifg_fundraiser_widget() 
+    public function __construct( $arr = array() )
     {
-        /* ... */
-        parent::WP_Widget(false, $name = __('IF:Gathering Widget', 'ifg_fundraiser_widget') );
-    }
-
-    // widget form creation
-    function form( $instance )
-    {  
-        /* ... */
-        // Check values
-        if( $instance ) {
-             $title   = esc_attr( $instance['title'] );
-        } else {
-             $title   = '';
-             
-        }
-        ?>
-        <p><em>This widget is not responsive and requires the minimum width to be 350px</em></p>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'dntly'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p>
-
-        
-        <p style="display:block; clear:both;"></p>
-
-
-        
-
-    <?php
-    }
-
-    // widget update
-    function update( $new_instance, $old_instance )
-    {
-        /* ... */
-        $instance = $old_instance;
-             // Fields
-            $instance['title']   = strip_tags( $new_instance['title'] );
-      
-
-            return $instance;
+    
+        parent::__construct(
+                    'ifg_fundraiser_widget', // Base ID
+                    __( 'IF:Gathering Widget', 'ifg_fundraiser_widget' ), // Name
+                    array( 'description' => __( 'A simple widget to show IF:Gathering\'s fundraiser progress', 'ifg_fundraiser_widget' ), ) // Args
+                );
     }
 
     // widget display
-    function widget( $args, $instance ) {
+    public function widget( $args, $instance ) {
         /* ... */
         
         
@@ -95,10 +62,66 @@ class IFG_FUNDRAISER_WIDGET extends WP_Widget
         echo $after_widget;
 
     }
+
+    // widget form creation
+    public function form( $instance )
+    {  
+        /* ... */
+        // Check values
+        if( $instance ) {
+             $title   = esc_attr( $instance['title'] );
+        } else {
+             $title   = '';
+             
+        }
+        ?>
+        <p><em>This widget is not responsive and requires the minimum width to be 350px</em></p>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'dntly'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+
+        
+        <p style="display:block; clear:both;"></p>
+
+
+        
+
+    <?php
+    }
+
+    // widget update
+    public function update( $new_instance, $old_instance )
+    {
+        /* ... */
+        $instance = $old_instance;
+             // Fields
+            $instance['title']   = strip_tags( $new_instance['title'] );
+      
+
+            return $instance;
+    }
+
+    
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("ifg_fundraiser_widget");'));
 
+/**
+ * Register the Widget
+ * @return [type] [description]
+ */
+function register_if_gathering_widget() {
+    register_widget( 'ifg_fundraiser_widget' );
+}
+add_action( 'widgets_init', 'register_if_gathering_widget' );
+
+
+/**
+ * [ifg_fundraiser_shortcode description]
+ * @param  [type] $atts    [description]
+ * @param  [type] $content [description]
+ * @return [type]          [description]
+ */
 function ifg_fundraiser_shortcode( $atts, $content=null )
 {
     ob_start(); ?>
